@@ -10,9 +10,10 @@ class Entry:
     def __repr__(self):
         return "({}, {})".format(self.v, self.b)
 class TruthTable:
-    def __init__(self, variables):
-        self.variables = variables
-        self.n = len(variables)
+    def __init__(self, formula):
+        self.formula = formula
+        self.variables = formula.getVars()
+        self.n = len(self.variables)
         self.table = {}
 
     def gen_table(self):
