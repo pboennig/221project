@@ -14,17 +14,19 @@ testFormulas = FormulaSource()
 testFormulas.gen_data(NUM_TEST_FORMULAS)
 numCorrect = 0
 numTotal = 0
+nnC = 0
 for f in testFormulas.data:
     t = TruthTable(Formula(f))
     t.gen_table()
 
     oracle(t)
     oracleT = copy(t.table)
+
     baseline(t)
     baseT = copy(t.table)
+
     nn.solve_table(t)
     nnT = copy(t.table)
-    nnC = 0
     for k in oracleT:
         numTotal += 1
         if oracleT[k] == baseT[k]:
@@ -32,5 +34,5 @@ for f in testFormulas.data:
         if oracleT[k] == nnT[k]:
             nnC += 1
 
-print("Baseline: {}/{} correct".format(numCorrect, numTotal))
-print("NN: {}/{} correct".format(nnC, numTotal))
+print("Baseline: {}/{} correct".format(numCorrect, numTotal), "accuracy={}".format(numCorrect / numTotal))
+print("NN: {}/{} correct".format(nnC, numTotal), "accuracy={}".format(nnC / numTotal))

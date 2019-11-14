@@ -14,10 +14,8 @@ class NeuralNet:
         fs.gen_data(N)
         split = int(len(fs.data) * percent_train)
         train_data = list(fs.data)[:split]
-        test_data = list(fs.data)[split:]
         self.X_train, self.Y_train = self.label_data(train_data)
-        self.X_test, self.Y_test = self.label_data(test_data)       
-        self.clf = MLPClassifier(solver='sgd', alpha=1e-5, hidden_layer_sizes=(10,5), warm_start=True, max_iter=1000)
+        self.clf = MLPClassifier(solver='sgd', hidden_layer_sizes=(10,5), max_iter=1000, random_state=4)
 
     def label_data(self, data):
         X = []
