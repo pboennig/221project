@@ -2,6 +2,10 @@ from formula import Formula
 from truth_table import TruthTable
 from oracle import oracle
 from baseline import baseline
+from neural_net import NeuralNet
+
+nn = NeuralNet()
+nn.train()
 
 while True:
     usr = input("Type a formula or <enter> to quit: ")
@@ -16,4 +20,8 @@ while True:
     print("Baseline:")
     baseline(t)
     t.print_table()
+    print("NeuralNet:")
+    nn.solve_table(t)
+    t.print_table()
+
 
