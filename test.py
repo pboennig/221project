@@ -9,10 +9,7 @@ while True:
     print("Formula:", f.formula)
     t = TruthTable(f.getVars())
     t.gen_table()
-    print("Empty table:")
-    t.print_table()
-    print("\nBaseline:")
-
+    print("Baseline:")
     baseline(t)
     t.print_table()
 
