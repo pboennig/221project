@@ -22,18 +22,21 @@ class TruthTable:
             n = 0
             while n < len(entries):
                 for _ in range(s):
-                    entries[n].append(Entry(v, True))
+                    entries[n].append(Entry(v, 1))
                     n += 1
                 for _ in range(s):
-                    entries[n].append(Entry(v, False))
+                    entries[n].append(Entry(v, 0))
                     n += 1
             s = int(s / 2)
 
         for entry in entries:
             self.table[tuple(entry)] = None 
-        print(self.table)
 
     def print_table(self):
+        print(' '.join(self.variables), '| Evaluation')
         for entry in self.table:
-            print(entry, ":", self.table[entry])
+            values = []
+            for i in range(self.n):
+                values.append(str(entry[i].b))
+            print(' '.join(values), '| {}'.format(self.table[entry]))
 
