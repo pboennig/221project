@@ -23,6 +23,3 @@ class FormulaSource:
         for _ in range(N):
             self.data.add(self.gen_formula())
 
-fs = FormulaSource()
-fs.gen_data(100)
-print(list(fs.data))
