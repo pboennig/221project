@@ -24,5 +24,5 @@ class FormulaSource:
             self.data.add(self.gen_formula())
 
 fs = FormulaSource()
-fs.gen_data(10)
+fs.gen_data(100)
 print(list(fs.data))
