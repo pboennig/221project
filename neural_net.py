@@ -23,7 +23,6 @@ class NeuralNet:
         for s in data:
             f = Formula(s)
             tt = TruthTable(f)
-            tt.gen_table()
             oracle(tt)
             for entry in tt.table:
                 w = {e.v : e.b for e in entry}

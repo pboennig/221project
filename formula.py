@@ -3,12 +3,13 @@ class Formula:
         self.formula = formula
 
     def getTokens(self):
-        return self.formula.split(" ")
+        return self.formula.split()
 
     def getVars(self):
-        v = set()
+        variables = []
         for token in self.getTokens():
-            if len(token) == 1 and str.isalpha(token):
-                v.add(token)
-        return v 
+            if token not in {'(', ')', 'not', 'and', 'or'} \
+                    and token not in variables:
+                variables.append(token)
+        return variables 
                 

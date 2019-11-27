@@ -17,7 +17,6 @@ numTotal = 0
 nnC = 0
 for f in testFormulas.data:
     t = TruthTable(Formula(f))
-    t.gen_table()
 
     oracle(t)
     oracleT = copy(t.table)
