@@ -7,7 +7,7 @@ from truth_table import TruthTable
 from sklearn.neural_network import MLPClassifier
 
 class NeuralNet:
-    def __init__(self):
+    def __init__(self, hls=(10, 5)):
         N = 1000
         percent_train = .8
         fs = FormulaSource()
@@ -15,7 +15,7 @@ class NeuralNet:
         split = int(len(fs.data) * percent_train)
         train_data = list(fs.data)[:split]
         self.X_train, self.Y_train = self.label_data(train_data)
-        self.clf = MLPClassifier(solver='sgd', hidden_layer_sizes=(10,5), max_iter=1000, random_state=4)
+        self.clf = MLPClassifier(solver='sgd', hidden_layer_sizes=hls, max_iter=1000, random_state=4)
 
     def label_data(self, data):
         X = []
